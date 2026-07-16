@@ -1,0 +1,25 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "journal-app-150ce",
+          "appId": "1:1054002501600:android:a7b59f607bafe082f83d85",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "journal-app-150ce",
+          "configurations": {
+            "android": "1:1054002501600:android:a7b59f607bafe082f83d85",
+            "web": "1:1054002501600:web:6eeb795ebe48e69ef83d85"
+          }
+        }
+      }
+    }
+  }
+}

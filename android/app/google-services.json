@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1054002501600",
+    "project_id": "journal-app-150ce",
+    "storage_bucket": "journal-app-150ce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054002501600:android:a7b59f607bafe082f83d85",
+        "android_client_info": {
+          "package_name": "com.example.journal_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054002501600-vl45e0sde76libmg7te95vp5m9qikrcf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQKZ9ifrNjf3st33nphuTe9wyiTxMgtrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054002501600-vl45e0sde76libmg7te95vp5m9qikrcf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
