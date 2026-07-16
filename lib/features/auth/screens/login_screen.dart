@@ -42,7 +42,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             email: _emailController.text,
             password: _passwordController.text,
           );
-      // On success the auth gate swaps the screen automatically.
     } catch (e) {
       _showError(authErrorMessage(e));
     } finally {
@@ -116,8 +115,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           icon: Icon(_obscure
                               ? Icons.visibility_outlined
                               : Icons.visibility_off_outlined),
-                          onPressed: () =>
-                              setState(() => _obscure = !_obscure),
+                          onPressed: () => setState(() => _obscure = !_obscure),
                         ),
                       ),
                       validator: (v) => (v == null || v.isEmpty)
@@ -140,8 +138,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       children: [
                         const Expanded(child: Divider()),
                         Padding(
-                          padding:
-                              const EdgeInsets.symmetric(horizontal: 12),
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
                           child: Text('or',
                               style: theme.textTheme.bodySmall?.copyWith(
                                   color: theme.colorScheme.onSurfaceVariant)),

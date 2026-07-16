@@ -6,8 +6,6 @@ import '../../features/entries/screens/home_screen.dart';
 import '../../features/insights/screens/insights_screen.dart';
 import '../../features/settings/screens/settings_screen.dart';
 
-/// The signed-in app scaffold: bottom navigation (Home · Calendar · Insights ·
-/// Settings) with a centered "+" FAB for creating a new entry.
 class AppShell extends StatefulWidget {
   const AppShell({super.key});
 
@@ -61,7 +59,7 @@ class _AppShellState extends State<AppShell> {
               selected: _index == 1,
               onTap: () => setState(() => _index = 1),
             ),
-            const SizedBox(width: 48), // gap for the FAB notch
+            const SizedBox(width: 48),
             _NavButton(
               icon: Icons.insights_outlined,
               selectedIcon: Icons.insights,
@@ -112,7 +110,8 @@ class _NavButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(selected ? selectedIcon : icon, color: color, size: 24),
-            Text(label, style: theme.textTheme.labelSmall?.copyWith(color: color)),
+            Text(label,
+                style: theme.textTheme.labelSmall?.copyWith(color: color)),
           ],
         ),
       ),

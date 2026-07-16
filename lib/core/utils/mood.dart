@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// Helpers for rendering mood values (1–5) consistently across the app.
 class Mood {
   Mood._();
 
-  /// Valid mood range.
   static const int min = 1;
   static const int max = 5;
 
@@ -44,19 +42,18 @@ class Mood {
     }
   }
 
-  /// A fixed color per mood, readable in both light and dark themes.
   static Color color(int mood) {
     switch (mood) {
       case 1:
-        return const Color(0xFFE53935); // red
+        return const Color(0xFFE53935);
       case 2:
-        return const Color(0xFFFB8C00); // orange
+        return const Color(0xFFFB8C00);
       case 3:
-        return const Color(0xFFFDD835); // yellow
+        return const Color(0xFFFDD835);
       case 4:
-        return const Color(0xFF7CB342); // light green
+        return const Color(0xFF7CB342);
       case 5:
-        return const Color(0xFF43A047); // green
+        return const Color(0xFF43A047);
       default:
         return const Color(0xFFFDD835);
     }

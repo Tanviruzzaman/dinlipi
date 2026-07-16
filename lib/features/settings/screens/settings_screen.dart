@@ -55,7 +55,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     if (newName == null || newName.trim().isEmpty) return;
     try {
       await ref.read(authRepositoryProvider).updateDisplayName(newName);
-      if (mounted) setState(() {}); // refresh with the new name
+      if (mounted) setState(() {});
       _snack('Name updated.');
     } catch (e) {
       _snack(authErrorMessage(e));
@@ -186,8 +186,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 ListTile(
                   leading: const Icon(Icons.book_outlined),
                   title: const Text('Total entries'),
-                  trailing: Text('$entryCount',
-                      style: theme.textTheme.titleMedium),
+                  trailing:
+                      Text('$entryCount', style: theme.textTheme.titleMedium),
                 ),
                 const Divider(height: 1),
                 const ListTile(

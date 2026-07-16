@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Central Material 3 theme for the app.
-///
-/// Uses a deep-purple seed color, Inter for UI text, and a 16px card radius.
 class AppTheme {
   AppTheme._();
 
-  static const Color _seed = Color(0xFF5E35B1); // deep purple
+  static const Color _seed = Color(0xFF5E35B1);
 
   static ThemeData light() => _build(Brightness.light);
   static ThemeData dark() => _build(Brightness.dark);

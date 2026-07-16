@@ -7,8 +7,6 @@ import '../../auth/providers/auth_providers.dart';
 import '../data/entry_model.dart';
 import '../providers/entries_providers.dart';
 
-/// One screen for both creating and editing an entry.
-/// Pass an existing [entry] to edit; pass null to create a new one.
 class EntryEditorScreen extends ConsumerStatefulWidget {
   const EntryEditorScreen({super.key, this.entry});
 

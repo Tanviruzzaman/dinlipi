@@ -46,8 +46,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
             password: _passwordController.text,
             displayName: _nameController.text,
           );
-      // The auth gate replaces this screen once signed in; pop the signup route
-      // so we don't leave it behind the app shell.
+
       if (mounted) Navigator.of(context).pop();
     } catch (e) {
       _showError(authErrorMessage(e));
@@ -116,8 +115,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                           icon: Icon(_obscure
                               ? Icons.visibility_outlined
                               : Icons.visibility_off_outlined),
-                          onPressed: () =>
-                              setState(() => _obscure = !_obscure),
+                          onPressed: () => setState(() => _obscure = !_obscure),
                         ),
                       ),
                       validator: (v) => (v == null || v.length < 6)

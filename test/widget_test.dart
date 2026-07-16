@@ -9,7 +9,7 @@ void main() {
       expect(Mood.values.length, 5);
       for (final m in Mood.values) {
         expect(Mood.label(m).isNotEmpty, true);
-        // color() and icon() should not throw for any valid mood.
+
         Mood.color(m);
         Mood.icon(m);
       }

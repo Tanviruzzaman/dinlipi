@@ -91,12 +91,10 @@ class _EntryList extends StatelessWidget {
   final List<Entry> entries;
   final void Function(Entry) onTap;
 
-  /// Returns true if the entry was actually deleted.
   final Future<bool> Function(Entry) onDelete;
 
   @override
   Widget build(BuildContext context) {
-    // Build a flat list of [header, ...cards, header, ...cards].
     final items = <_ListItem>[];
     String? lastHeader;
     for (final e in entries) {
@@ -193,8 +191,8 @@ class _EntryCard extends StatelessWidget {
                     const SizedBox(height: 8),
                     Text(
                       DateGroup.time(entry.createdAt),
-                      style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant),
+                      style: theme.textTheme.bodySmall
+                          ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
                     ),
                   ],
                 ),
@@ -223,7 +221,8 @@ class _EmptyState extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.auto_stories_outlined,
-                size: 72, color: theme.colorScheme.primary.withValues(alpha: 0.6)),
+                size: 72,
+                color: theme.colorScheme.primary.withValues(alpha: 0.6)),
             const SizedBox(height: 16),
             Text('Your journal is empty',
                 style: theme.textTheme.titleLarge
@@ -265,7 +264,6 @@ class _ErrorState extends StatelessWidget {
   }
 }
 
-// --- Small helper types for building the grouped list ---
 sealed class _ListItem {
   const _ListItem();
 }

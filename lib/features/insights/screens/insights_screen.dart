@@ -104,8 +104,8 @@ class _StatTile extends StatelessWidget {
                     ?.copyWith(fontWeight: FontWeight.w700)),
             Text(label,
                 textAlign: TextAlign.center,
-                style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant)),
+                style: theme.textTheme.bodySmall
+                    ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
           ],
         ),
       ),
@@ -132,8 +132,8 @@ class _AverageMoodCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Average mood',
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant)),
+                    style: theme.textTheme.bodyMedium
+                        ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
                 Text(
                   '${data.averageMood.toStringAsFixed(1)} · ${Mood.label(rounded)}',
                   style: theme.textTheme.titleLarge
@@ -224,8 +224,8 @@ class _MoodChartCard extends StatelessWidget {
                         dotData: const FlDotData(show: true),
                         belowBarData: BarAreaData(
                           show: true,
-                          color: theme.colorScheme.primary
-                              .withValues(alpha: 0.12),
+                          color:
+                              theme.colorScheme.primary.withValues(alpha: 0.12),
                         ),
                       ),
                     ],
@@ -244,7 +244,8 @@ class _MoodBreakdownCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final maxCount = data.moodCounts.values.fold<int>(0, (m, v) => v > m ? v : m);
+    final maxCount =
+        data.moodCounts.values.fold<int>(0, (m, v) => v > m ? v : m);
 
     return Card(
       child: Padding(
@@ -265,7 +266,8 @@ class _MoodBreakdownCard extends StatelessWidget {
                       child: LinearProgressIndicator(
                         value: fraction,
                         minHeight: 10,
-                        backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                        backgroundColor:
+                            theme.colorScheme.surfaceContainerHighest,
                         color: Mood.color(m),
                       ),
                     ),
@@ -328,10 +330,11 @@ class _EmptyInsights extends StatelessWidget {
                 style: theme.textTheme.titleLarge
                     ?.copyWith(fontWeight: FontWeight.w700)),
             const SizedBox(height: 8),
-            Text('Write a few entries and your mood trends,\nstreak, and stats will appear here.',
+            Text(
+                'Write a few entries and your mood trends,\nstreak, and stats will appear here.',
                 textAlign: TextAlign.center,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant)),
+                style: theme.textTheme.bodyMedium
+                    ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
           ],
         ),
       ),

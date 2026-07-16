@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Provides the SharedPreferences instance. Overridden in main() with the
-/// already-loaded instance so the rest of the app can read it synchronously.
 final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
   throw UnimplementedError('Override sharedPreferencesProvider in main()');
 });
 
-/// Holds the app's theme mode and persists it across launches.
 final themeModeProvider =
     NotifierProvider<ThemeModeNotifier, ThemeMode>(ThemeModeNotifier.new);
 

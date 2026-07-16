@@ -6,11 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/auth_repository.dart';
 import '../providers/auth_providers.dart';
 
-/// Shown when the signed-in user's email is not yet verified.
-///
-/// Polls the server every few seconds so that once the user clicks the link in
-/// their inbox, the app moves on automatically. Also offers a manual check,
-/// a resend button (with cooldown), and a way back to the login screen.
 class VerifyEmailScreen extends ConsumerStatefulWidget {
   const VerifyEmailScreen({super.key});
 
@@ -27,12 +22,12 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
   @override
   void initState() {
     super.initState();
-    // Auto-check every 4 seconds.
+
     _pollTimer = Timer.periodic(
       const Duration(seconds: 4),
       (_) => _check(silent: true),
     );
-    // Start with a resend cooldown so we don't spam right after signup.
+
     _startCooldown();
   }
 
@@ -64,7 +59,7 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
           await ref.read(authRepositoryProvider).reloadAndCheckVerified();
       if (verified) {
         _pollTimer?.cancel();
-        // Re-evaluate the auth gate; it will now route to the app.
+
         ref.invalidate(authStateProvider);
       } else if (!silent && mounted) {
         _snack('Not verified yet. Check your inbox (and spam folder).');
@@ -117,8 +112,8 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
                   const SizedBox(height: 12),
                   Text.rich(
                     TextSpan(
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant),
+                      style: theme.textTheme.bodyMedium
+                          ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
                       children: [
                         const TextSpan(
                             text: 'We sent a verification link to\n'),
@@ -127,8 +122,7 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
                           style: const TextStyle(fontWeight: FontWeight.w700),
                         ),
                         const TextSpan(
-                            text:
-                                '.\n\nOpen it, then come back here — the app '
+                            text: '.\n\nOpen it, then come back here — the app '
                                 'unlocks automatically once you’re verified.'),
                       ],
                     ),
@@ -162,8 +156,7 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
                   ),
                   const SizedBox(height: 24),
                   TextButton(
-                    onPressed: () =>
-                        ref.read(authRepositoryProvider).signOut(),
+                    onPressed: () => ref.read(authRepositoryProvider).signOut(),
                     child: const Text('Use a different account'),
                   ),
                 ],

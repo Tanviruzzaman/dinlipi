@@ -20,7 +20,6 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
   DateTime? _selectedDay = DateTime.now();
   CalendarFormat _format = CalendarFormat.month;
 
-  /// Groups entries by day for quick lookup.
   Map<DateTime, List<Entry>> _byDay(List<Entry> entries) {
     final map = <DateTime, List<Entry>>{};
     for (final e in entries) {
@@ -30,7 +29,6 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
     return map;
   }
 
-  /// Average mood for a day, rounded (used to color the marker dot).
   int _dayMood(List<Entry> entries) {
     if (entries.isEmpty) return 3;
     final sum = entries.fold<int>(0, (acc, e) => acc + e.mood);
@@ -53,8 +51,7 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
               byDay[DateGroup.dayOnly(day)] ?? const [];
 
           final selected = _selectedDay ?? _focusedDay;
-          // Copy into a modifiable list before sorting — eventsFor may return
-          // a const [] (unmodifiable) for days with no entries.
+
           final dayEntries = List<Entry>.of(eventsFor(selected))
             ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
 
@@ -88,8 +85,8 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
                     onPageChanged: (focusedDay) => _focusedDay = focusedDay,
                     calendarStyle: CalendarStyle(
                       todayDecoration: BoxDecoration(
-                        color: theme.colorScheme.primary
-                            .withValues(alpha: 0.35),
+                        color:
+                            theme.colorScheme.primary.withValues(alpha: 0.35),
                         shape: BoxShape.circle,
                       ),
                       selectedDecoration: BoxDecoration(

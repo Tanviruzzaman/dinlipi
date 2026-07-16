@@ -1,8 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-/// A single journal entry.
-///
-/// Stored at `users/{uid}/entries/{entryId}`.
 class Entry {
   const Entry({
     required this.id,
@@ -18,13 +15,12 @@ class Entry {
   final String id;
   final String title;
   final String body;
-  final int mood; // 1–5
+  final int mood;
   final List<String> tags;
   final List<String> photoUrls;
   final DateTime createdAt;
   final DateTime updatedAt;
 
-  /// A blank entry for the "new entry" screen.
   factory Entry.empty() => Entry(
         id: '',
         title: '',
@@ -52,8 +48,6 @@ class Entry {
     );
   }
 
-  /// Content fields only. Timestamps are set by the repository using
-  /// server timestamps, so they are intentionally excluded here.
   Map<String, dynamic> toContentMap() => {
         'title': title,
         'body': body,
@@ -94,8 +88,7 @@ class Entry {
   static DateTime _toDate(dynamic value) {
     if (value is Timestamp) return value.toDate();
     if (value is DateTime) return value;
-    // createdAt/updatedAt can be momentarily null while a server timestamp
-    // is pending; fall back to "now" so the UI never breaks.
+
     return DateTime.now();
   }
 }
